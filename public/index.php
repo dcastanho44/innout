@@ -4,5 +4,11 @@
 require_once(dirname(__FILE__) . '/../src/config/config.php');             
 require_once(dirname(__FILE__) . '/../src/models/User.php');             
 
-$user = new User(['name' => 'Lucas', 'email' => 'lucas@cod3r.com.br']);
-echo $user->getSelect();
+foreach(User::get([], 'name') as $user){
+    echo $user->name;
+    echo '<br>';
+}
+
+print_r(User::get(['name' => 'Chaves'], 'id, name, email'));
+echo '<br>';
+print_r(User::get());
