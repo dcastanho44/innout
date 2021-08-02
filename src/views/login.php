@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email"
-                        class="form-control" placeholder="Informe o e-mail" autofocus>
+                        class="form-control" value=<?= $_POST['email'] ?> placeholder="Informe o e-mail" autofocus>
                 </div>
                 <div class="form-group">
                     <label for="password">E-mail</label>
@@ -37,5 +37,6 @@
             <button class="btn btn-lg btn-primary">Entrar</button>
         </div>
     </form>
+    <?= $texto ?>
 </body>
 </html>
