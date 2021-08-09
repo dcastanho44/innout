@@ -1,3 +1,3 @@
 <?php
 
-loadTemplateView('day_records.php');
+loadTemplateView('day_records');
