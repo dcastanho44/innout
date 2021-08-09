@@ -25,12 +25,22 @@
                 <div class="form-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email"
-                        class="form-control value=<?= $_POST['email'] ?>" placeholder="Informe o e-mail" autofocus>
+                        class="form-control 
+                        <?= isset($exception) ? ($exception->get('email') ? 'is-invalid' : '') : '' ?>" 
+                        value="<?= $email ?>" placeholder="Informe o e-mail" autofocus>
+                    <div class="invalid-feedback">
+                        <?= isset($exception) ? $exception->get('email') : '' ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="password">E-mail</label>
                     <input type="password" id="password" name="password"
-                        class="form-control" placeholder="Informe a senha" autofocus>
+                        class="form-control
+                        <?= isset($exception) ? ($exception->get('password') ? 'is-invalid' : '') : '' ?>" 
+                        placeholder="Informe a senha" autofocus>
+                    <div class="invalid-feedback">
+                        <?= isset($exception) ? $exception->get('password') : '' ?>
+                    </div>
                 </div>
             </div>
         </div>
