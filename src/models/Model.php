@@ -67,7 +67,7 @@ class Model {
         }
     }
 
-    public function insert() {
+    public function save() {
         $sql = "INSERT INTO " . static::$tableName . " ("
             . implode(",", static::$columns) . ") VALUES (";
         foreach(static::$columns as $col) {
