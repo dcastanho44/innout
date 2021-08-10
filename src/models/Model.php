@@ -66,7 +66,7 @@ class Model {
             return $result;
         }
     }
-/*
+
     public function insert() {
         $sql = "INSERT INTO " . static::$tableName . " ("
             . implode(",", static::$columns) . ") VALUES (";
@@ -78,6 +78,7 @@ class Model {
         $this->id = $id;
     }
 
+    /*
     public function update() {
         $sql = "UPDATE " . static::$tableName . " SET ";
         foreach(static::$columns as $col) {
