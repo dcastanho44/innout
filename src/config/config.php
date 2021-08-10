@@ -3,6 +3,10 @@
 date_default_timezone_set('America/Sao_Paulo');
 setlocale(LC_TIME, 'pt-BR', 'pt-BR.utf-8', 'portuguese');
 
+//Constantes Gerais
+define('DAILY_TIME', 60 * 60 * 8); // 8 horas em segundos
+
+
 // Pastas (constantes para facilitar)
 define('MODEL_PATH', realpath(dirname(__FILE__) . '/../models'));
 define('VIEW_PATH', realpath(dirname(__FILE__) . '/../views'));
