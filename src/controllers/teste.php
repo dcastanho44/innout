@@ -1,9 +1,9 @@
 <?php
 // Controller Temporário
 
-$i1 = DateInterval::createFromDateString('9 hours');
-$i2 = DateInterval::createFromDateString('6 hours');
+loadModel('WorkingHours');
 
-$r1 = subtractIntervals($i1, $i2);
-
-print_r(getDateFromInterval($r1));
+$wh = WorkingHours::loadFromUserAndDate(1, date('Y-m-d'));
+echo '<br>';
+$workedIntervalString = $wh->getWorkedInterval()->format('%H:%I:%S');
+print_r($workedIntervalString);
