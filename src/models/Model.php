@@ -67,7 +67,7 @@ class Model {
         }
     }
 
-    public function save() {
+    public function insert() {
         $sql = "INSERT INTO " . static::$tableName . " ("
             . implode(",", static::$columns) . ") VALUES (";
         foreach(static::$columns as $col) {
@@ -78,7 +78,7 @@ class Model {
         $this->id = $id;
     }
 
-    /*
+
     public function update() {
         $sql = "UPDATE " . static::$tableName . " SET ";
         foreach(static::$columns as $col) {
@@ -89,12 +89,13 @@ class Model {
         Database::executeSQL($sql);
     }
 
+    /*
+
     public static function getCount($filters = []) {
         $result = static::getResultSetFromSelect(
             $filters, 'count(*) as count');
         return $result->fetch_assoc()['count'];
     }
-
     public function delete() {
         static::deleteById($this->id);
     }
