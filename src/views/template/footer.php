@@ -1,7 +1,7 @@
 <footer class="footer">
-    <span>Desenvolvido com</span>
-    <span><i class="icofont-heart text-danger mx-1"></i></span>
-    <span>por Cod3r</span>
+    <span>Daniel Castanho </span>
+    <span>-</span>
+    <span>Cod3r</span>
 </footer>
 <script src="assets/js/app.js"></script>       <!-- carrega o script depois de carregar body, header e footer -->
 </body>
