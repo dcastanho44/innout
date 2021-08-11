@@ -1,1 +1,2 @@
-<h1>monthly_report</h1>
+<?php
+print_r($registries);

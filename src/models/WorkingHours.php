@@ -55,6 +55,7 @@ class WorkingHours extends Model {
         }
 
         $this->$timeColumn = $time;
+        $this->worked_time = getSecondsFromDateInterval($this->getWorkedInterval());
         if($this->id){        //se o id estiver setado
             $this->update();
         } else {
@@ -103,6 +104,26 @@ class WorkingHours extends Model {
             return $t1->add($total);
         }
     }
+
+    public static function getMonthlyReport($userId, $date){
+        $registries = [];
+        $startDate = getFirstDayOfMonth($date)->format('Y-m-d');
+        $endDate = getLastDayOfMonth($date)->format('Y-m-d');
+
+        $result = WorkingHours::getResultSetFromSelect([
+            'user_id' => $userId,
+            'raw' => "work_date BETWEEN '{$startDate}' AND '{$endDate}'" 
+        ]);
+
+        if($result){
+            while($row = $result->fetch_assoc()){
+                $registries [$row['work_date']] = new WorkingHours($row);
+            }
+        }
+
+        return $registries;
+    }
+
 
     private function getTimes(){  //transforma os strings em horas
         $times = [];
