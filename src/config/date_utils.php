@@ -42,3 +42,8 @@ function getDateFromInterval($interval){
 function getDateFromString($str) {
     return DateTime::createFromFormat('H:i:s', $str);
 }
+
+function getLastDayOfMonth($date) {
+    $time = getDateAsDateTime($date)->getTimeStamp();
+    return new DateTime(date('Y-m-t', $time));
+}
