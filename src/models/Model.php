@@ -89,13 +89,13 @@ class Model {
         Database::executeSQL($sql);
     }
 
-    /*
 
     public static function getCount($filters = []) {
         $result = static::getResultSetFromSelect(
             $filters, 'count(*) as count');
         return $result->fetch_assoc()['count'];
     }
+/*
     public function delete() {
         static::deleteById($this->id);
     }
