@@ -95,7 +95,7 @@ class Model {
             $filters, 'count(*) as count');
         return $result->fetch_assoc()['count'];
     }
-/*
+
     public function delete() {
         static::deleteById($this->id);
     }
@@ -104,7 +104,7 @@ class Model {
         $sql = "DELETE FROM " . static::$tableName . " WHERE id = {$id}";
         Database::executeSQL($sql);
     }
-*/
+    
     private static function getFilters($filters) {
         $sql = '';
         if(count($filters) > 0) {
