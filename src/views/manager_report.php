@@ -29,7 +29,7 @@
         <div class="card mt-4">
             <div class="card-header">
                 <h4 class="card-title">Faltosos do Dia</h4>
-                <p class="card-category mb-0">Ainda Não Bateram Ponto</p>
+                <p class="card-category mb-0">Ainda não bateram ponto</p>
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped table-hover">
