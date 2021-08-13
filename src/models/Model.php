@@ -78,7 +78,6 @@ class Model {
         $this->id = $id;
     }
 
-
     public function update() {
         $sql = "UPDATE " . static::$tableName . " SET ";
         foreach(static::$columns as $col) {
@@ -88,7 +87,6 @@ class Model {
         $sql .= "WHERE id = {$this->id}";
         Database::executeSQL($sql);
     }
-
 
     public static function getCount($filters = []) {
         $result = static::getResultSetFromSelect(
@@ -104,7 +102,7 @@ class Model {
         $sql = "DELETE FROM " . static::$tableName . " WHERE id = {$id}";
         Database::executeSQL($sql);
     }
-    
+
     private static function getFilters($filters) {
         $sql = '';
         if(count($filters) > 0) {
