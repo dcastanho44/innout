@@ -1,20 +1,37 @@
 <main class="content">
     <?php
-        renderTitle(
-            'Relatório Mensal',
-            'Acompanhe seu saldo de horas mensais',
-            'icofont-ui-calendar'
-        );
+    renderTitle(
+        'Relatório Mensal',
+        'Acompanhe seu saldo de horas mensais',
+        'icofont-ui-calendar'
+    );
     ?>
     <div>
         <form class="mb-4" action="#" method="post">
-            <select name="period" class="form-control" placeholder="Selecione o Período">
-                <?php 
-                    foreach($periods as $key => $month) {
-                        echo "<option value='{$key}'>{$month}</option>";
+            <div class="input-group">
+                <?php if ($user->is_admin) : ?>
+                    <select name="user" class="form-control mr-2" placeholder="Selecione o Usuário">
+                        <option value="">Selecione o Usuário</option>
+                        <?php
+                        foreach ($users as $user) {
+                            $selected = $user->id === $selectedUserId ? 'selected' : '';
+                            echo "<option value='{$user->id}' {$selected}>{$user->name}</option>";
+                        }
+                        ?>
+                    </select>
+                <?php endif ?>
+                <select name="period" class="form-control" placeholder="Selecione o Período">
+                    <?php
+                    foreach ($periods as $key => $month) {
+                        $selected = $key === $selectedPeriod ? 'selected' : '';
+                        echo "<option value='{$key}' {$selected}>{$month}</option>";
                     }
-                ?>
-            </select>
+                    ?>
+                </select>
+                <button class="btn btn-primary ml-2">
+                    <i class="icofont-search"></i>
+                </button>
+            </div>
         </form>
 
         <table class="table table-bordered table-striped table-hover">
@@ -27,7 +44,7 @@
                 <th>Saldo</th>
             </thead>
             <tbody>
-                <?php foreach($report as $registry): ?>
+                <?php foreach ($report as $registry) : ?>
                     <tr>
                         <td><?= formatDateWithLocale($registry->work_date, '%A, %d de %B de %Y') ?></td>
                         <td><?= $registry->time1 ?></td>
